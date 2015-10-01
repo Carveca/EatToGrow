@@ -72,7 +72,7 @@ public class Player : MonoBehaviour
             isInAir = false;
         else if (collision.gameObject.tag == "Goal")
         {
-            // TODO: Win!
+            Application.LoadLevel("win");
         }
     }
 

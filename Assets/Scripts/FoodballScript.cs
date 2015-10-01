@@ -13,7 +13,7 @@ public class FoodballScript : MonoBehaviour
         // Check expiry
         if(m_timer >= m_lifeTime)
         {
-            Destroy(this);
+            Destroy(this.gameObject);
         }
     }
 }
