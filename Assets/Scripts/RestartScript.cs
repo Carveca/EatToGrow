@@ -2,6 +2,8 @@
 
 public class RestartScript : MonoBehaviour
 {
+    public int m_playerScore;
+
     void Start()
     {
         GameObject.DontDestroyOnLoad(this);
@@ -15,7 +17,17 @@ public class RestartScript : MonoBehaviour
         }
         else if(Input.GetKey(KeyCode.Return))
         {
+            m_playerScore = 0;
             Application.LoadLevel("scene");
         }
+    }
+
+    public void SaveScore(int ammount)
+    {
+        m_playerScore = ammount;
+    }
+    public int GetScore()
+    {
+        return m_playerScore;
     }
 }

@@ -26,10 +26,10 @@ public class Player : MonoBehaviour
         // Death check
         if(lifeTimer <= 0.0f || score < 0)
         {
-            // TODO: Lose!
+            Application.LoadLevel("Lose");
         }
 
-        lifeTimer -= Time.deltaTime;
+        lifeTimer -= Time.deltaTime;       
 
         if(Input.GetKeyDown(KeyCode.R))
         {
@@ -69,11 +69,19 @@ public class Player : MonoBehaviour
             lifeTimer -= eatLife;
         }           
         else if (collision.gameObject.tag == "Map")
+        {
             isInAir = false;
+        }           
         else if (collision.gameObject.tag == "Goal")
         {
+            GameObject.FindGameObjectWithTag("GameController").GetComponent<RestartScript>().SaveScore(score);
             Application.LoadLevel("win");
         }
+    }
+
+    void OnGUI()
+    {
+        GUILayout.Label("Score: " + score);
     }
 
     void Postpone()
