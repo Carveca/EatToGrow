@@ -20,6 +20,11 @@ public class RestartScript : MonoBehaviour
             m_playerScore = 0;
             Application.LoadLevel("scene");
         }
+        else if (Input.GetKey(KeyCode.M))
+        {
+            m_playerScore = 0;
+            Application.LoadLevel("menu");
+        }
     }
 
     public void SaveScore(int ammount)
