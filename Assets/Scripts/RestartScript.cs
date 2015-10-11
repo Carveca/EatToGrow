@@ -2,11 +2,18 @@
 
 public class RestartScript : MonoBehaviour
 {
+    public static RestartScript Instance;
     public int m_playerScore;
 
     void Start()
     {
-        GameObject.DontDestroyOnLoad(this);
+        if (Instance)
+            DestroyImmediate(gameObject);
+        else
+        {
+            GameObject.DontDestroyOnLoad(this);
+            Instance = this;
+        }
     }
 
     void Update()

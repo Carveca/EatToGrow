@@ -2,8 +2,16 @@
 
 public class MusicScript : MonoBehaviour
 {
-	void Start ()
+    public static MusicScript Instance;
+
+    void Start()
     {
-        GameObject.DontDestroyOnLoad(this);	
-	}
+        if (Instance)
+            DestroyImmediate(gameObject);
+        else
+        {
+            GameObject.DontDestroyOnLoad(this);
+            Instance = this;
+        }
+    }
 }

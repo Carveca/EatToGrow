@@ -11,6 +11,6 @@ public class WinCameraScript : MonoBehaviour
 
     void OnGUI()
     {
-        GUI.TextField(new Rect(Screen.width / 2 - 100, Screen.height - 100, 200, 50), "Your score: " + score);
+        GUI.TextField(new Rect(Screen.width / 2 - 50, Screen.height - 50, 100, 30), "Your score: " + score);
     }	
 }
